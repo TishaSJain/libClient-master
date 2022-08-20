@@ -1,0 +1,42 @@
+<section class="vh-100" style="background-color: #9a616d">
+  <div class="container py-5 h-80">
+    <div class="row d-flex justify-content-center align-items-center h-80">
+      <div class="col col-xl-8">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row g-10">
+                  <div class="col-md-6 col-lg-5 d-none d-md-block">
+                    <img
+                      src="../../../assets/library.jpg"
+                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem" />
+                  </div>
+            <div class="col-md-7 col-md-5 justify-content-center">
+              <div class="card-body p-5 p-md-7 text-black">
+                <form (ngSubmit)="onSubmit()">
+                  <div class="d-flex justify-content-center">
+                    <img src="../../../assets/logo.jpg" alt="login form" class="img-fluid" style=" border-radius: 1rem 0 0 1rem; width: 120px;height: 120px;" />
+                  </div>
+                  <label class="form-label"><h5 class="fw-normal mb-2" style="letter-spacing: 1px;">Sign into your account</h5></label>
+                  <div class="justify-content-center align-items-center">
+                    <div class="col-auto">
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control form-control-sm" name="email" [(ngModel)]="email" id="email" placeholder="name@example.com">
+                      <label for="floatingInput"><h6 class="text-muted">Email address</h6></label>
+                    </div>
+                  </div>
+                    <div class="form-floating">
+                      <input type="password" class="form-control form-control-sm" name="password" [(ngModel)]="password" id="password" placeholder="Password">
+                      <label for="floatingPassword"><h6 class="text-muted">Password</h6></label>
+                    </div>
+                    <div class="pt-1 mb-2 ">
+                      <button class="btn btn-dark btn-lg btn-block my-btn" type="submit">Login</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

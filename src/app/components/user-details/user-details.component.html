@@ -1,0 +1,60 @@
+<div class="container-fluid g-0 p-2 ">
+
+    <div class="row g-0 ">
+
+        <div class="col ps-2">
+
+            <div class="row g-0">
+
+                <div class="col-md-10 text-center mt-2">
+                    <span class="name">{{userData.name}}</span>
+                </div>
+
+                <div *ngIf="userData.user_type!='Super Admin' " class="col-md-2 d-flex justify-content-center align-items-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-success" (click)="openEdit(userData)"
+                            >Edit</button>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row g-0 mt-3">
+
+                <div class="col-md">
+
+                    <table class="table table-hover mx-auto">
+                        
+                        <tbody>
+                            <tr>
+                                <td><b>Id</b> </td>
+                                <td>{{userData.uid}}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td>{{userData.email}}</td>
+
+                            </tr>
+                            <tr>
+
+                                <td><b>Role</b></td>
+                                <td>{{userData.user_type}}
+                                    <ng-container *ngIf="userData.user_type=='In-Active' ">
+                                        <mat-icon inline="true">report_problem</mat-icon>
+                                    </ng-container>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

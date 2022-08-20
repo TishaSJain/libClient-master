@@ -1,0 +1,43 @@
+.black-border {
+    border: 1px solid black;
+  }
+  
+
+  .mat-icon {
+    vertical-align: middle;
+    margin-left: 2px;
+    height: 90%;
+    color: rgb(241, 31, 31);
+}
+  table {
+    width: 90%;
+    border-color: #243A73
+  }
+  
+  .name {
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 3px;
+    margin-top: 4px;
+    box-shadow: 0px 0px 5px rgba(36, 58, 115);
+    border-radius: 10px;
+    padding: 0px 2rem;
+  }
+
+  .btn-outline-success{
+    color: #81c740;
+    border-color: #81c740;
+  }
+  
+  .btn-outline-success:hover{
+    color: white;
+    border-color: #81c740;
+    background-color: #81c740;
+  }
+  
+  .btn-outline-success:focus{
+    color: white;
+    border-color: #81c740;
+    background-color: #81c740;
+  }

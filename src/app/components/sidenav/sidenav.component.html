@@ -1,0 +1,25 @@
+<mat-nav-list>
+    <div class="logo p-4">
+        <img src="../../../assets/logoNoBg.png">
+    </div>
+    <mat-divider></mat-divider>
+
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard/home">
+        <mat-icon>home</mat-icon> Home
+      </a>
+      <a *ngIf="userData.role.id==3" mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard/issues">
+        <mat-icon>add_shopping_cart</mat-icon> Your Books
+      </a>
+      <a *ngIf="userData.role.id!=3" mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard/users">
+        <mat-icon>supervisor_account</mat-icon> Manage Users
+      </a>
+      <a *ngIf="userData.role.id!=3" mat-list-item routerLinkActive="list-item-active" routerLink="books-issued/all">
+        <mat-icon>library_books</mat-icon>All Books Issued
+      </a>
+      <a *ngIf="userData.role.id!=3" mat-list-item routerLinkActive="list-item-active" routerLink="students-books">
+        <mat-icon>account_circle</mat-icon>Students 
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard/profile">
+        <mat-icon>manage_accounts</mat-icon> Profile
+      </a>
+</mat-nav-list>

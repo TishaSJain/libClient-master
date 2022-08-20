@@ -1,0 +1,99 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-5">Home</div>
+  <div class="page__content shadow p-3 position-relative">
+    <ngb-alert *ngIf="bookIssued!=null" (closed)="closedAlert()" class="alert-issued">{{bookIssued}}</ngb-alert>
+    <div class="container">
+      <div *ngIf="userData.role.id!=3">
+        <button type="button" class="add btn btn-info mt-3" (click)="open(content,null)" #addBookButton>Add Book</button>
+      </div>
+      <div class="row text-center">
+        <ng-container *ngIf="booksData!=null; then thenBlock; else elseBlock"></ng-container>
+        <ng-template #thenBlock>
+          <ng-container *ngFor="let book of booksData">
+            <div class="col-xl-3 col-sm-6 mb-5">
+              <div class="bg-card rounded shadow-sm py-4 px-3">
+                <img
+                  src={{book.image}}
+                  alt="" width="100" class="img-fluid  mb-3 img-thumbnail shadow-sm" />
+                <h3 class="mb-0">{{book.bname}}</h3>
+                <span class="small text-uppercase">
+                  <h5>{{book.author}}</h5>
+                </span>
+                <span class="small text-uppercase text-muted">
+                  <h5>{{book.publisher}}</h5>
+                </span>
+                <ul class="mb-0  mt-3">
+                  <li class="list-inline-item mr-4">
+                    <div style="font-size: 0.9rem;">Available : {{book.noOfCopies}}</div>
+                  </li>
+                  <li class="list-inline-item ml-2">
+                     <div *ngIf="userData.role.id==3" >
+                    <button type="button" *ngIf="book.noOfCopies!=0 " class="borrow-btn btn btn-primary" (click)="issueBook(userData.uid!,book.bid!)">Borrow</button>
+                  </div>
+                  </li>
+                </ul>
+                <div *ngIf="userData.role.id!=3">
+                  <button type="button" class="edit btn btn-info mt-3" (click)="open(content,book)">Edit</button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+        <ng-template #elseBlock>
+          <div class="page__content-data position-absolute text-center">
+            No Books Available In Library!
+          </div>
+        </ng-template>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Book</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newBookForm">
+      <div class="form-group">
+        <label for="bname">Name</label>
+        <div class="input-group">
+          <input id="bname" name="bname" formControlName="bname" class="form-control" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="author">Author</label>
+        <div class="input-group">
+          <input id="author" name="author" formControlName="author" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <div class="input-group">
+          <input type="password" id="publisher" name="publisher" formControlName="publisher" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <div class="input-group">
+          <input type="url" id="image" name="image" formControlName="image" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="noOfCopies">No Of Copies</label>
+        <div class="input-group">
+          <input type="number" id="noOfCopies" name="noOfCopies" formControlName="noOfCopies" class="form-control" required>
+        </div>
+      </div>
+    
+      <div class="border text-center">
+        <button data-dismiss="modal" value="" class="btn btn-info" (click)="submitBook()">Submit</button>
+        </div>
+    </form>
+  </div>
+  
+</ng-template>

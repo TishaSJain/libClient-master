@@ -1,0 +1,33 @@
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+ul li {
+  list-style: none;
+}
+button {
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+.user {
+  color: #F2EBE9;
+  font-size: 14px;
+}
+mat-toolbar {
+  background: #222121;
+}
+
+mat-icon{
+  color: #F2EBE9;
+}
+
+.user-image-icon {
+  height: 18px;
+  font-size: 16px;
+}
+::ng-deep .mat-menu-content {
+  width: 160px;
+ background: #A5BECC;
+}

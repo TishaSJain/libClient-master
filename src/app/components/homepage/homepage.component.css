@@ -1,0 +1,72 @@
+.page {
+    color: white;
+    padding: 0 1rem !important;
+    background: #f1f5f9 !important;
+}
+.page__box {
+    min-height: 120px !important;
+    background: #243A73;
+    margin:-1rem;
+    font-size: 36px !important;
+}
+.page__content {
+    min-height: calc(100vh - 178px) !important;
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem !important;
+}
+.page__content-data {
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bg-card{
+    background: #99a3a5;
+}
+
+.container{
+    display: inline-block !important;
+}
+
+.borrow-btn{
+    color: black;
+    height: 30px;
+    padding-bottom: 2px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-color:#F2EBE9;
+    background-color: #F2EBE9;
+}
+
+.edit{
+    border-color:#F2EBE9;
+    color: #F2EBE9;
+    background-color: transparent;
+    accent-color: black;
+}
+.add{
+    margin-left: 10px;
+    margin-bottom: 6px;
+    height: 40px;
+    padding-bottom: 3px;
+    font-size: 1.2rem;
+    color: #81c740;
+    background-color: transparent;
+    border-color:#81c740;
+}
+
+.add:hover{
+    color: white;
+    background-color: #81c740;
+    border-color:#81c740;
+}
+.alert-issued ::ng-deep 
+.btn-close{
+   padding: 6px;
+}
+
+
+

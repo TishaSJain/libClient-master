@@ -1,0 +1,62 @@
+.page {
+    color: white;
+    padding: 0 1rem !important;
+    background: #f1f5f9 !important;
+}
+.page__box {
+    min-height: 120px;
+    background: #243A73;
+    margin:-1rem;
+    font-size: 36px;
+}
+.page__content {
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    
+}
+.page__content-data {
+    font: 2rem sans-serif;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+table {
+    width: 100%;
+    background-color: #A5BECC;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 15%;
+    color: #243A73;
+    margin: 0 auto;
+  }
+  .alert-issued ::ng-deep 
+.btn-close{
+   padding: 6px;
+}
+
+.btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active{
+  background-color: #81c740;
+  border-color: #81c740;
+}
+
+.btn-outline-primary{
+  background-color: transparent;
+  border-color: #81c740;
+  color: #81c740;
+}
+
+.btn-outline-primar:focus{
+  background-color: transparent;
+  border-color: #81c740;
+  color: #81c740;
+}

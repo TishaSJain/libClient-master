@@ -1,0 +1,165 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-5">Manage Users</div>
+  <div class="page__content shadow p-3 ">
+    <div class="container-fluid g-0">
+      <main>
+        <div class="toolbar">
+          <div class="add-employee">
+            <button type="button" class="btn btn-outline-success btn-lg" 
+              (click)="open(content)" #addUserButton >Add User</button>
+          </div>
+        </div>
+        <div class="employees">
+              <ng-container *ngIf="usersDisplayed.length==0; then noUser else displayUsers "></ng-container>
+              <ng-template #noUser>
+                  <div class="row mt-5">            
+                  <div class="col text-center">
+                    <span class="text-secondary fs-2 fw-bold fst-italic">There are No Users Added!</span>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template #displayUsers>
+                <div class="row mt-4" *ngFor="let user of usersDisplayed">
+                    <div class="col">
+                      <app-user-details [userData]="user" (editUser)="editUser($event,content1)"></app-user-details>
+                    </div>
+                </div>
+              </ng-template>
+        </div>
+             </main>
+    </div>
+ </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newUserForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <div class="input-group">
+          <input id="name" name="name" formControlName="name" class="form-control" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" name="email" formControlName="email" class="form-control">
+        </div>
+        <!--Alert for invalid email-->
+        <ng-container *ngIf="error!=null;">
+          <p>
+            <ngb-alert type="danger" [dismissible]="false">
+             {{error}}
+            </ngb-alert>
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input type="password" id="password" name="password" formControlName="password" class="form-control" required>
+        </div>
+      </div>
+      <label >User Role</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="1"  formControlName="userType" id="role1" >
+        <label class="form-check-label" for="role1">
+          Super Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="2"  formControlName="userType" id="role2"  >
+        <label class="form-check-label" for="role2">
+          Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="3" formControlName="userType" id="role3">
+        <label class="form-check-label" for="role3">
+          Student
+        </label>
+      </div>    
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="4"  formControlName="userType" id="role4" >
+        <label class="form-check-label" for="role4">
+          InActive
+        </label>
+      </div> 
+      <div class="text-center">
+        <button data-dismiss="modal" class="btn btn-info" (click)="submitUser()">Submit</button>
+        </div>
+    </form>
+  </div>
+  
+</ng-template>
+
+<ng-template #content1 let-modal1>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Add User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal1.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="newUserForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <div class="input-group">
+          <input id="name" name="name" formControlName="name" class="form-control" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <input id="email" name="email" formControlName="email" class="form-control">
+        </div>
+        <!--Alert for invalid email-->
+        <ng-container *ngIf="error!=null;">
+          <p>
+            <ngb-alert type="danger" [dismissible]="false">
+             {{error}}
+            </ngb-alert>
+          </p>
+        </ng-container>
+      </div>
+      <label >User Role</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="1"  formControlName="userType" id="role1" >
+        <label class="form-check-label" for="role1">
+          Super Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="2"  formControlName="userType" id="role2"  >
+        <label class="form-check-label" for="role2">
+          Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="3" formControlName="userType" id="role3">
+        <label class="form-check-label" for="role3">
+          Student
+        </label>
+      </div>    
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="userType" value="4"  formControlName="userType" id="role4" >
+        <label class="form-check-label" for="role4">
+          InActive
+        </label>
+      </div> 
+      <div class="text-center">
+        <button data-dismiss="modal" class="btn btn-info" (click)="submitUser()">Submit</button>
+        </div>
+    </form>
+  </div>
+  
+</ng-template>
+
+
+
